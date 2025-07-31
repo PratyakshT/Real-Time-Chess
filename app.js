@@ -6,7 +6,7 @@ const path = require("path");
 
 const app = express();
 
-const server = http.createServer(app); //Socket requires http server which is based on express server
+const server = http.createServer(app); 
 const io = socket(server);
 
 const chess = new Chess();
@@ -17,20 +17,11 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Chess Game" }); //Update index.ejs dynamically. possible only in ejs
+  res.render("index", { title: "Chess Game" }); 
 });
 
-io.on("connection", function (socket) {
-  //This uniquesocket is the unique information about the new player
-  console.log("Connected"); //Socket io needs to be setup on both frontend and backend
-
-  //   uniquesocket.on("churan", function () {        //Whenever churan event is received from any socket, run this function.
-  //     io.emit("churan chaat");                     //emit to all
-  //   });
-
-  //     uniquesocket.on("disconnect", function(){       //disconnect is automatically sent by frontend when connection between the user and server is interrupted.
-  //     console.log("disconnect");
-  //    })
+io.on("connection", function (socket) {         //This uniquesocket is the unique information about the new player
+  console.log("Connected");                     //Socket io needs to be setup on both frontend and backend
 
   if (!players.white) {
     players.white = socket.id; //every uniquesocket has a unique id.
@@ -67,7 +58,7 @@ io.on("connection", function (socket) {
       }
     } catch (err) {
       console.log(err);
-      socket.emit("invalidMove", move); //only sent to user who made the wrong move
+      socket.emit("invalidMove", move);             //only sent to user who made the wrong move
     }
   });
 });

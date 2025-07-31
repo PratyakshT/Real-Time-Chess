@@ -1,10 +1,4 @@
-const socket = io(); //This will automatically send a request to backend to line io.on in app.js
-
-// socket.emit("churan")                   //The event churan is sent from frontend to backend. This event is received by io.on in app.js
-
-// socket.on("churan chaat", function(){   //run the function when churan chaat is received
-//     console.log("tasty");
-// });
+const socket = io();                            //This will automatically send a request to backend to line io.on in app.js
 
 const chess = new Chess();
 const boardElement = document.querySelector(".chessboard");
@@ -13,9 +7,9 @@ let draggedPiece = null;
 let sourceSquare = null;
 let playerRole = null;
 
-const renderBoard = () => {       //core UI logic
+const renderBoard = () => {                     //core UI logic
   const board = chess.board();
-  boardElement.innerHTML = ""; //this brings the board to original position/ clears the board
+  boardElement.innerHTML = "";                  //This brings the board to original position / clears the board
   board.forEach((row, rowindex) => {
     row.forEach((square, squareindex) => {
       const squareElement = document.createElement("div");
@@ -28,8 +22,8 @@ const renderBoard = () => {       //core UI logic
         const pieceElement = document.createElement("div");
         pieceElement.classList.add("piece", square.color === "w" ? "white" : "black");
 
-        pieceElement.innerText = getPieceUnicode(square);   //Sets the Unicode symbol
-        pieceElement.draggable = playerRole === square.color;   //makes the piec draggable only if it's your turn
+        pieceElement.innerText = getPieceUnicode(square);         //Sets the Unicode symbol
+        pieceElement.draggable = playerRole === square.color;     //makes the piece draggable only if it's your turn
 
         pieceElement.addEventListener("dragstart", (e) => {
           if (pieceElement.draggable) {
@@ -103,7 +97,7 @@ const getPieceUnicode = (piece) => {
   return unicodePieces[piece.type] || "";
 };
 
-socket.on("playerRole", function (role) {     //throgh socket.on, we can listen for events from a client
+socket.on("playerRole", function (role) {     //through socket.on, we can listen for events from a client
   playerRole = role;
   renderBoard();
 });

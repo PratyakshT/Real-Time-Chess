@@ -1,6 +1,6 @@
 .chessboard{
     display: grid;
-    grid-template-columns: repeat(8, minmax(0,1fr)); /*minimum of 0 and maximum of 1 fractional unit (total width/8)*/
+    grid-template-columns: repeat(8, minmax(0,1fr)); 
     grid-template-rows: repeat(8, minmax(0,1fr));
     width: 400px;
     height: 400px;
@@ -39,7 +39,7 @@
     cursor: pointer;
 }
 
-.piece.draggable{           /*for an element which has both class piece and draggable*/
+.piece.draggable{           
     cursor: grab;
 }
 
@@ -47,7 +47,7 @@
     opacity: 0.5;
 }
 /* rotate the pieces for black player */
-.flipped .piece{                        /*for an element inside clss flipped which has class piece*/
+.flipped .piece{                        
     transform: rotate(180deg);
 }
 
