@@ -1,0 +1,41 @@
+there are 3 options when a user sends data to the server.
+ 1. send it to everyone using the server(group chat).
+ 2. send it to a specific person(personal chat).
+ 3. send it to everyone except sender.(Broadcasting). e.g: "typing..."
+
+
+Why use npm init?
+npm init: Starts the process of creating a package.json file (which stores metadata about your project like name, version, dependencies, etc.).
+
+
+forEach loop can't break but for loop can.
+
+const numbers = [1, 2, 3, 4];
+
+numbers.forEach((num) => {
+  if (num === 3) return; // Skips only this iteration
+  console.log(num);
+});
+// Output: 1, 2, 4 (cannot break fully)
+
+Event listeners are used to respond to user actions
+
+document.querySelector("button").addEventListener("click", () => {
+  alert("Button clicked!");
+});
+
+
+Using EJS, we can inject dynamic values in HTML
+
+Roles of each file:
+1. index.ejs:
+Interlinks the stylesheet, tailwind, socket.io,chess.js
+
+2. style.css
+provides aesthetics to the page, board and pieces
+
+3. chessgame.js
+Renders the chessboard
+Handles dragging and dropping pieces
+Sends and receives Socket.IO messages
+Keeps the board in sync with the backend
