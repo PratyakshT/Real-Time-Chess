@@ -1,6 +1,6 @@
 # ♟️ Multiplayer Chess Game
 
-A web-based real-time multiplayer chess game built using HTML, CSS, JavaScript, and *Socket.io*. Players can challenge friends or strangers and play full chess games.
+A web-based real-time multiplayer chess game built using *HTML*, *CSS*, *JavaScript*, and **Socket.io**. Players can challenge friends or strangers and play full chess games.
 
 ---
 
